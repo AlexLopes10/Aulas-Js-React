@@ -1,30 +1,65 @@
 import './App.css';
-import Header from './components/Header';
-import Secao from './components/Secao';
-import Footer from './components/Footer';
-import Cards from './components/Cards';
-import Link from './components/Link';
 
-const mostrar = true
-const TextoHeader = 'Esse é o Texto Header'
+
 function App() {
+
+  const aula3 = [
+    {
+      nome: "fulano 1",
+      idade: 29,
+      data_nascimento: "10 /05 / 1995",
+      nome_mae: "antonia",
+      pai: false,
+    },
+    {
+      nome: "fulano 2",
+      idade: 34,
+      data_nascimento: "20 /04 / 1990",
+      nome_mae: "maria",
+      pai: true,
+      nome_pai: "josé"
+    },
+    {
+      nome: "fulano 3",
+      idade: 26,
+      data_nascimento: "16 /06 / 1998",
+      nome_mae: "maria",
+      pai: false
+    },
+    {
+      nome: "fulano 4",
+      idade: 30,
+      data_nascimento: "02 /04 / 1995",
+      nome_mae: "marta",
+      pai: true,
+      nome_pai: "joão"
+    },
+    {
+      nome: "fulano 5",
+      idade: 31,
+      data_nascimento: "15 /04 / 1994",
+      nome_mae: "ester",
+      pai: false
+    },
+
+  ]
+
   return (
     <div classname="App">
-      <header>
-        <Header TextoHeader={TextoHeader} />
-        <Secao texto={'essa é a seção 1'} />
-        <Secao texto={'essa é a seção 2'} />
-        <Footer />
-      </header>,
-      <main>
-        <Cards card={'Componentização 1'} />
-        <Cards card={'Componentização 2'} />
-        <Cards card={'Componentização 3'} />
-        <Cards card={'Componentização 4'} />
-        <Link mostrar={mostrar} link={"https://www.google.com/"} linkNome={'Google'}/>
-        <Link mostrar={mostrar} link={"https://ge.globo.com/"} linkNome={'Globo Sport'} />
-      </main>
-
+      
+      {
+        aula3.map(item => {
+          return (
+            <div classname='box'>
+              <p>Nome:{item.nome}</p>
+              <p>Idade:{item.idade}</p>
+              <p>Data de Nascimento:{item.data_nascimento}</p>
+              <p>Nome da Mãe:{item.nome_mae}</p>
+              {item.pai && <p>nome do pai:{item.nome_pai}</p>}
+            </div>
+          )
+        })
+      }
 
     </div>
 
