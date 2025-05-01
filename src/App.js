@@ -2,68 +2,81 @@ import './App.css';
 
 
 function App() {
-
-  const aula3 = [
+  const lista = [
     {
-      nome: "fulano 1",
-      idade: 29,
-      data_nascimento: "10 /05 / 1995",
-      nome_mae: "antonia",
-      pai: false,
+      name: "alex",
+      email: "teste@teste.com.br",
+      eLegal: true,
+      estadoCivil: "casado"
     },
     {
-      nome: "fulano 2",
-      idade: 34,
-      data_nascimento: "20 /04 / 1990",
-      nome_mae: "maria",
-      pai: true,
-      nome_pai: "josé"
+      name: "alex 2",
+      email: "maria@teste.com.br",
+      eLegal: false,
+      estadoCivil: "casado"
     },
     {
-      nome: "fulano 3",
-      idade: 26,
-      data_nascimento: "16 /06 / 1998",
-      nome_mae: "maria",
-      pai: false
+      name: "alex 3",
+      email: "joao@teste.com.br",
+      eLegal: true,
+      estadoCivil: "casado"
     },
     {
-      nome: "fulano 4",
-      idade: 30,
-      data_nascimento: "02 /04 / 1995",
-      nome_mae: "marta",
-      pai: true,
-      nome_pai: "joão"
-    },
-    {
-      nome: "fulano 5",
-      idade: 31,
-      data_nascimento: "15 /04 / 1994",
-      nome_mae: "ester",
-      pai: false
-    },
-
+      name: "alex 4",
+      email: "jose@teste.com.br",
+      eLegal: false,
+      estadoCivil: "casado"
+    }
   ]
 
+  const acai = [
+    {
+      name: "combo 1",
+      frutas: ['abacaxi', 'morango', 'uva'],
+      cobertura: true
+    },
+    {
+      name: "combo 2",
+      frutas: ['banana', 'morango', 'uva'],
+      cobertura: true
+    },
+    {
+      name: "combo 3",
+      frutas: ['abacaxi', 'morango', 'banana'],
+      cobertura: true
+    }
+  ]
+
+  const filtro = acai.filter(comboLista => {
+    return comboLista.frutas.includes('abacaxi')
+  })
+
+  const filtrando = lista.filter(itemLista => {
+    return itemLista.eLegal === false
+  })
+
+  console.log(filtrando, 'filtrando')
   return (
     <div classname="App">
-      
+
       {
-        aula3.map(item => {
+        filtrando.map(itemLista => {
           return (
-            <div classname='box'>
-              <p>Nome:{item.nome}</p>
-              <p>Idade:{item.idade}</p>
-              <p>Data de Nascimento:{item.data_nascimento}</p>
-              <p>Nome da Mãe:{item.nome_mae}</p>
-              {item.pai && <p>nome do pai:{item.nome_pai}</p>}
-            </div>
+            <p> {itemLista.name} </p>
+
+          )
+        })
+      }
+      {
+        filtro.map(comboLista => {
+          return (
+            <p key={comboLista.name}> {comboLista.name} </p>
           )
         })
       }
 
-    </div>
-
-  );
+    </div >
+  )
 }
 
 export default App;
