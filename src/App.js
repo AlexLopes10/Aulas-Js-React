@@ -1,33 +1,35 @@
 import './App.css';
-import Header from './components/Header';
-import Secao from './components/Secao';
-import Footer from './components/Footer';
-import Cards from './components/Cards';
-import Link from './components/Link';
+import { useState } from 'react';
 
-const mostrar = true
-const TextoHeader = 'Esse é o Texto Header'
+
+
 function App() {
+  const [valor, setValor] = useState('');
+  const mensagem = "Você conseguiu de uma Variavel"
+
+  function aoMudar(e) {
+    setValor(e.target.value);
+  }
+
+  function aoEnviar() {
+    alert("Resultado: " + (Number(valor) + 4));
+  }
+
+  function mostrarMensagem() {
+    alert(mensagem);
+  }
+
   return (
-    <div classname="App">
-      <header>
-        <Header TextoHeader={TextoHeader} />
-        <Secao texto={'essa é a seção 1'} />
-        <Secao texto={'essa é a seção 2'} />
-        <Footer />
-      </header>,
-      <main>
-        <Cards card={'Componentização 1'} />
-        <Cards card={'Componentização 2'} />
-        <Cards card={'Componentização 3'} />
-        <Cards card={'Componentização 4'} />
-        <Link mostrar={mostrar} link={"https://www.google.com/"} linkNome={'Google'}/>
-        <Link mostrar={mostrar} link={"https://ge.globo.com/"} linkNome={'Globo Sport'} />
-      </main>
-
-
+    <div className="App">
+      <form>
+        <label>Digite um número:</label>
+        <input type="number" onChange={aoMudar} />
+        <button type="button" onClick={aoEnviar}>Enviar</button>
+      </form>
+      <div onClick={mostrarMensagem}>
+        <h1>Click aqui</h1>
+      </div>
     </div>
-
   );
 }
 
