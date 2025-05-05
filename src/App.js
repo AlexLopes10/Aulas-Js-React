@@ -1,13 +1,22 @@
 import './App.css';
-import { Teste, Click } from './components/Utils';
+import { Instrumentos, Trindade } from './components/Utils';
 
 
 function App() {
   return (
-    <form>
-      <input onChange={(e) => { Teste(e.target.value,'--é muito Legal--') }} />
-      <button onClick={(e) => { Click('Alex','Legal') }}>Enviar</button>
-    </form>
+    <div>
+      <form>
+        <label>Instrumentos:</label>
+        <input onChange={(e) => { Instrumentos(e.target.value) }} />
+        <button>Enviar</button>
+      </form>
+
+      <form>
+        <label>Trindade:</label>
+        <input onChange={(e) => { Trindade(e.target.value) }} />
+        <button>Enviar</button>
+      </form>
+    </div>
   );
 }
 
