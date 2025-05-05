@@ -1,5 +1,5 @@
 export const Teste = (valorDigitado) => {
-    console.log(valorDigitado)
+    console.log(valorDigitado,`---é muito louco---`)
 }
 
 export const Click = (nome, nome2) => {
